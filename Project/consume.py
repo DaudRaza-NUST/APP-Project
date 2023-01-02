@@ -61,21 +61,21 @@ def consume_product():
     if category=='honda':
         query_3="select ItemQuant from honda where ItemName= %s"
         qnt_imp=(name,)
-        mycurser1 = itemdb.cursor()
+        mycurser1 = itemdb.cursor(buffered=True)
         mycurser1.execute(query_3,qnt_imp)
         previous_qunatity = mycurser1.fetchone()
         itemdb.commit()
     elif category=='suzuki':
          query_3="select ItemQuant from suzuki where ItemName= %s"
          qnt_imp=(name,)
-         mycurser1 = itemdb.cursor()
+         mycurser1 = itemdb.cursor(buffered=True)
          mycurser1.execute(query_3,qnt_imp)
          previous_qunatity = mycurser1.fetchone()
          itemdb.commit()
     elif category=='toyota':
          query_3="select ItemQuant from toyota where ItemName= %s"
          qnt_imp=(name,)
-         mycurser1 = itemdb.cursor()
+         mycurser1 = itemdb.cursor(buffered=True)
          mycurser1.execute(query_3,qnt_imp)
          previous_qunatity = mycurser1.fetchone()
          itemdb.commit()
@@ -84,13 +84,13 @@ def consume_product():
    
     quantity_int=int(quantity)
     
-    print(previous_qnt_int)
-    print(quantity_int)
+    # print(previous_qnt_int)
+    # print(quantity_int)
   
     
     new_quantity=previous_qnt_int-quantity_int
     
-    print(new_quantity)
+    # print(new_quantity)
     
     if new_quantity < 0:
         err_message = messagebox.showerror(title="Error",message=("Less QUantity Available, Can't consume this product"))
@@ -98,22 +98,24 @@ def consume_product():
        
         query_2="UPDATE honda SET ItemQuant = %s WHERE ItemName = %s"
         value=(new_quantity, name)
-        mycurser = itemdb.cursor()
+        mycurser = itemdb.cursor(buffered=True)
         mycurser.execute(query_2,value)
         itemdb.commit()
+        messagebox.showinfo('Success!', 'Product consumed Successfully!')
     elif category=='suzuki':
         query_2="UPDATE suzuki SET ItemQuant = %s WHERE ItemName = %s"
         value=(new_quantity, name)
-        mycurser = itemdb.cursor()
+        mycurser = itemdb.cursor(buffered=True)
         mycurser.execute(query_2,value)
-   
         itemdb.commit()
+        messagebox.showinfo('Success!', 'Product consumed Successfully!')
     elif category=='toyota':
         query_2="UPDATE toyota SET ItemQuant = %s WHERE ItemName = %s"
         value=(new_quantity, name)
-        mycurser = itemdb.cursor()
+        mycurser = itemdb.cursor(buffered=True)
         mycurser.execute(query_2,value)
         itemdb.commit()
+        messagebox.showinfo('Success!', 'Product consumed Successfully!')
 
 
 consume_but = customtkinter.CTkButton(cp_frame, text="Consume", command = consume_product)

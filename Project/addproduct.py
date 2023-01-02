@@ -108,6 +108,7 @@ def add_product():
         record1=(userid,name,assembly,quantity,cost,year)
         mycurser.execute(query1,record1)
         itemdb.commit()
+        messagebox.showinfo('Success!', 'Product added Successfully!')
     
     elif category=='suzuki':
         query1='INSERT INTO suzuki(`ID`, `ItemName`, `ItemAssem`, `ItemQuant`, `ItemCost`, `ItemYear`) VALUES (%s, %s, %s, %s, %s, %s)'
@@ -115,6 +116,7 @@ def add_product():
         record1=(userid,name,assembly,quantity,cost,year)
         mycurser.execute(query1,record1)
         itemdb.commit()
+        messagebox.showinfo('Success!', 'Product added Successfully!')
         
     elif category=='toyota':
         query1='INSERT INTO toyota(`ID`, `ItemName`, `ItemAssem`, `ItemQuant`, `ItemCost`, `ItemYear`) VALUES (%s, %s, %s, %s, %s, %s)'
@@ -122,6 +124,7 @@ def add_product():
         record1=(userid,name,assembly,quantity,cost,year)
         mycurser.execute(query1,record1)
         itemdb.commit()
+        messagebox.showinfo('Success!', 'Product added Successfully!')
     else:
        err_message = messagebox.showerror(title="Error",message=("category does not exist"))
     
