@@ -1,0 +1,5 @@
+ID,ItemName,ItemAssem,ItemQuant,ItemCost,ItemYear
+1,"Al pipe","Discharge Pipe",123,53,2015
+2,Flange,"Discharge Pipe",26,126,2015
+3,"O Ring","Suction Pipe",35,48,2017
+4,Cap,"Liquid Pipe",65,150,2016

@@ -1,0 +1,6 @@
+ID,ItemName,ItemAssem,ItemQuant,ItemCost,ItemYear
+1,Grommet,"Liquid Pipe",15,150,2015
+2,Flange,"Liquid Pipe",20,120,2016
+3,Flange,"Suction Pipe",32,113,2016
+4,"Al pipe","Liquid Pipe",132,50,2014
+5,"O ring","Discharge Pipe",150,12,2015
